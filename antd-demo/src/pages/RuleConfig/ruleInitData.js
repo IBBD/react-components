@@ -2,7 +2,7 @@
 const ruleInitData = {
   is_merge_horizontal_row: true,
   is_exclude_headers_and_footers: true,
-  is_matching_text_length: false,
+  is_matching_text_length: true,
   rule_description: '',
   text_length_min: 0,
   text_length_max: 0,

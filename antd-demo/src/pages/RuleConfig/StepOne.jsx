@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Form, Input, Select, Switch } from 'antd';
+import React, { useState, useEffect, useContext } from 'react';
+// import { Form, Input, Select, Switch } from 'antd';
+import { Form, Input as AntInput, Select as AntSelect } from 'antd';
 import data from './data.js';
+import DisabledContext from 'components/FormItem/DisabledContext'
+import { Input, Select, Switch } from 'components/FormItem/items'
 
-const { Option } = Select;
-const { TextArea } = Input;
+const { Option } = AntSelect;
+const { TextArea } = AntInput;
 
 const getTooltips = (items) => {
   return items.map((item) => item.title + ': ' + item.desc).join('\n');
@@ -31,6 +34,7 @@ const StepOne = (props) => {
     props.changeRuleType(newRuleType);
   };
 
+  const { disabled } = useContext(DisabledContext)
   return (
     <>
       <div style={{ display: visible ? 'block' : 'none' }}>
@@ -97,13 +101,13 @@ const StepOne = (props) => {
               valuePropName="checked"
               extra="通常情况下保持默认合并即可"
             >
-              <Switch defaultChecked disabled={false} />
+              <Switch defaultChecked />
             </Form.Item>
           ) : null
         }
 
         <Form.Item label="规则说明" name="rule_description">
-          <TextArea rows={4} disabled={false} placeholder="规则应该有相关的说明" />
+          <TextArea disabled={disabled} rows={4} placeholder="规则应该有相关的说明" />
         </Form.Item>
       </div>
     </>

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Space, Form, Select, Switch, InputNumber, Divider } from 'antd';
+// import { Space, Form, Select, Switch, InputNumber, Divider } from 'antd';
+import { Space, Form, Divider } from 'antd';
 import { CaretDownFilled, CaretUpOutlined } from '@ant-design/icons';
+import { Select, Switch, InputNumber } from 'components/FormItem/items';
 import data from './data.js';
 import styles from './BottomButton.less';
 

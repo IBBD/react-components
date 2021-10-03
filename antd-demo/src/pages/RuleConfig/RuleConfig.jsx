@@ -3,6 +3,7 @@ import { Drawer, Form, Input } from 'antd';
 // import PropTypes from 'prop-types';
 
 // import FormItemDiabledHoc, { FormItemDisabledContext } from 'components/FormItem/FormItemDisabled'
+import DisabledContext from 'components/FormItem/DisabledContext'
 import data from './data.js';
 import StepOne from './StepOne.jsx';
 import StepTwo from './StepTwo.jsx';
@@ -142,6 +143,9 @@ const RuleConfig = (props) => {
             <Input value={props.groupID} />
           </Form.Item>
 
+          <DisabledContext.Provider value={{
+            disabled: false,
+          }}>
           <StepOne
             {...formItemParams}
             formRef={form}
@@ -160,6 +164,7 @@ const RuleConfig = (props) => {
 
           {/* <HighLevel ruleMode={ruleMode} ruleType={ruleType} form={form} /> */}
           <HighLevel {...formItemParams} form={form} />
+          </DisabledContext.Provider>
 
           <ActionButton
             step={step}
