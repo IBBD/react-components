@@ -31,7 +31,8 @@ const HighLevel = (props) => {
 const HighForm = (props) => {
   const [visible, setVisible] = useState(false); // 是否展示
   const [textLenLimit, setTextLenLimit] = useState(false); // 是否展示
-  const [ruleType, setRuleType] = useState(props.ruleType); // 规则类型
+  // eslint-disable-next-line no-unused-vars
+  const [_, setRuleType] = useState(props.ruleType); // 规则类型
   const [ruleMode, setRuleMode] = useState(props.ruleMode); // 规则匹配模式
 
   useEffect(() => {

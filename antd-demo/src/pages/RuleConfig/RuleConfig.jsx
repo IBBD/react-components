@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Drawer, Form, Input } from 'antd';
+// import PropTypes from 'prop-types';
+
+// import FormItemDiabledHoc, { FormItemDisabledContext } from 'components/FormItem/FormItemDisabled'
 import data from './data.js';
 import StepOne from './StepOne.jsx';
 import StepTwo from './StepTwo.jsx';
@@ -11,6 +14,8 @@ const layout = {
   labelCol: { span: 4 },
   wrapperCol: { span: 16 },
 };
+// 表单初始化数据
+let formInitData = {...ruleInitData}
 
 
 const RuleConfig = (props) => {
@@ -29,8 +34,8 @@ const RuleConfig = (props) => {
     setRuleType('');
     setRuleID(props.ruleID);
     setStep(data.StepStatus.step1); // 重置为第一步
-    console.log('RuleConfig version', props.version, ' useEffect:', props);
-  }, [props, props.version]);
+    console.log('RuleConfig version', props.version);
+  }, [props.version, props.ruleID]);
 
   useEffect(() => {
     // 第一个步骤校验成功之后
@@ -40,17 +45,29 @@ const RuleConfig = (props) => {
     }
   }, [stepOneStatus]);
 
-  let formInitData = {...ruleInitData}
   useEffect(() => {
     // 改变初始化值
+    formInitData = {...ruleInitData}
     if (data.filterKeywords.modes.indexOf(ruleMode) >= 0) {
       formInitData[data.filterKeywords.key] = data.filterKeywords.punctuation
     } else {
       formInitData[data.filterKeywords.key] = []
     }
 
-    //
-  }, [ruleMode, ruleType]);
+    // 目标模式
+    if (ruleMode === data.RuleModesDict.object.key) {
+      formInitData = {...formInitData, ...ruleInitData.object_config}
+    }
+    console.log('表单初始化值 in useEffect: mode', formInitData)
+  }, [ruleMode]);
+
+  useEffect(() => {
+    if (ruleType in data.type2APIDict) {
+      formInitData = {...formInitData, ...ruleInitData[data.type2APIDict[ruleType]]}
+      console.log('表单初始化值 in useEffect: type', formInitData)
+    }
+    // console.log('===', ruleType, data.type2APIDict)
+  }, [ruleType]);
 
   const onClose = () => {
     setVisible(false);
@@ -94,6 +111,12 @@ const RuleConfig = (props) => {
     // console.log(values);
   };
 
+  const formItemParams = {
+    disabled: ruleID ? true : false,   // 表单元素是否只读
+    ruleMode: ruleMode,
+    ruleType: ruleType,
+  }
+
   return (
     <>
       <Drawer
@@ -120,19 +143,23 @@ const RuleConfig = (props) => {
           </Form.Item>
 
           <StepOne
+            {...formItemParams}
             formRef={form}
             visible={step === data.StepStatus.step1}
-            ruleMode={ruleMode}
+            // ruleMode={ruleMode}
             changeRuleMode={setRuleMode}
-            ruleType={ruleType}
+            // ruleType={ruleType}
             changeRuleType={setRuleType}
+            readOnly={ruleID ? true : false}
           />
 
           {step === data.StepStatus.step2 ? (
-            <StepTwo ruleMode={ruleMode} ruleType={ruleType} />
+            // <StepTwo ruleMode={ruleMode} ruleType={ruleType} />
+            <StepTwo {...formItemParams} />
           ) : null}
 
-          <HighLevel ruleMode={ruleMode} ruleType={ruleType} form={form} />
+          {/* <HighLevel ruleMode={ruleMode} ruleType={ruleType} form={form} /> */}
+          <HighLevel {...formItemParams} form={form} />
 
           <ActionButton
             step={step}
