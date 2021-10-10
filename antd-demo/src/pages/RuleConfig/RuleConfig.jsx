@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Drawer, Form, Input } from 'antd';
-// import PropTypes from 'prop-types';
 
-// import FormItemDiabledHoc, { FormItemDisabledContext } from 'components/FormItem/FormItemDisabled'
 import DisabledContext from 'components/FormItem/DisabledContext';
 import data from './data.js';
 import StepOne from './StepOne.jsx';

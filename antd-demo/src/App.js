@@ -1,4 +1,4 @@
-import './App.css';
+import './App.less';
 import React, { useState } from 'react';
 import { Button } from 'antd';
 import TreeHorizPage from './pages/TreeHoriz/TreeHorizPage';

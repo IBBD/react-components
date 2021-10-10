@@ -14,11 +14,11 @@ const ActionButton = (props) => {
 
   return (
     <>
-      <Space className={styles.boxmain}>
+      <Space className={styles.buttonMain}>
         <Space className={styles.buttonLeft}>
           {step === data.StepStatus.step2 ? (
             <Button
-              className={styles.cancal}
+              // className={styles.cancal}
               onClick={() => props.changeStep(data.StepStatus.step1)}
             >
               上一步
@@ -27,7 +27,10 @@ const ActionButton = (props) => {
         </Space>
 
         <Space className={styles.buttonRight}>
-          <Button className={styles.cancal} onClick={() => props.onCancel()}>
+          <Button
+            // className={styles.cancal}
+            onClick={() => props.onCancel()}
+          >
             取消
           </Button>
           {step === data.StepStatus.step1 ? (
