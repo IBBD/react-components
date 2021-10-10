@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Space } from 'antd';
 import data from './data.js';
-import styles from './BottomButton.less';
+import styles from './BottomButton.module.less';
+
+console.log(styles)
 
 const ActionButton = (props) => {
   const [step, setStep] = useState(props.step); // 当前在哪一步
@@ -13,7 +15,7 @@ const ActionButton = (props) => {
   return (
     <>
       <Space className={styles.boxmain}>
-        <Space className={styles.boxone}>
+        <Space className={styles.buttonLeft}>
           {step === data.StepStatus.step2 ? (
             <Button
               className={styles.cancal}
@@ -24,7 +26,7 @@ const ActionButton = (props) => {
           ) : null}
         </Space>
 
-        <Space className={styles.boxtwo}>
+        <Space className={styles.buttonRight}>
           <Button className={styles.cancal} onClick={() => props.onCancel()}>
             取消
           </Button>

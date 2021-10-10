@@ -1,4 +1,5 @@
-import { Input as AntInput,
+import {
+    Input as AntInput,
     Select as AntSelect,
     Switch as AntSwith,
     InputNumber as AntInputNumber

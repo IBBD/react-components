@@ -4,7 +4,7 @@ import { Space, Form, Divider } from 'antd';
 import { CaretDownFilled, CaretUpOutlined } from '@ant-design/icons';
 import { Select, Switch, InputNumber } from 'components/FormItem/items';
 import data from './data.js';
-import styles from './BottomButton.less';
+import styles from './BottomButton.module.less';
 
 const HighLevel = (props) => {
   const [visible, setVisible] = useState(false); // 是否展示
@@ -46,9 +46,7 @@ const HighForm = (props) => {
 
   return (
     <div style={{ display: visible ? 'block' : 'none' }}>
-      <Form.Item label="过滤关键词" name="filter_keywords"
-        extra='匹配到的值会过滤掉这些关键词'
-      >
+      <Form.Item label="过滤关键词" name="filter_keywords" extra="匹配到的值会过滤掉这些关键词">
         <Select
           mode="tags"
           allowClear

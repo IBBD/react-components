@@ -1,6 +1,5 @@
 // 常量定义
-const
-  // 步骤常量
+const // 步骤常量
   STEP_STEP1 = 'step1',
   STEP_STEP2 = 'step2',
   STEP_HIGH = 'high',
@@ -18,22 +17,22 @@ const
   TYPE_MONEY = 'money',
   TYPE_REGULAR = 'regular',
   TYPE_TABLEID = 'tableID',
-  TYPE_TABLETITLE = 'tableTitle'
+  TYPE_TABLETITLE = 'tableTitle';
 
 // 数据
 let data = {
   // 步骤标识常量（规则配置时主要分成两个步骤）
   StepStatus: {
-    step1: STEP_STEP1,  // 第一步
-    step2: STEP_STEP2,  // 第二步
-    high: STEP_HIGH,    // 高级设置
+    step1: STEP_STEP1, // 第一步
+    step2: STEP_STEP2, // 第二步
+    high: STEP_HIGH, // 高级设置
   },
 
   // 规则匹配模式
   RuleModes: [
     {
       key: MODE_LINE,
-      open: true,       // 该值为false，则不会在界面上展示出来
+      open: true, // 该值为false，则不会在界面上展示出来
       title: '行模式',
       desc: '按照文档中的文本行进行匹配。',
     },
@@ -171,43 +170,43 @@ let data = {
   // 过滤标点及关键词
   filterKeywords: {
     key: 'filter_keywords',
-    punctuation: [],   // 过滤的标点符号
-    modes: [MODE_LINE, MODE_SENTENCE],  // 定义在哪些模式下可以包含该选项
+    punctuation: [], // 过滤的标点符号
+    modes: [MODE_LINE, MODE_SENTENCE], // 定义在哪些模式下可以包含该选项
   },
 
   // map for rule type to api field
-  type2APIDict: {}
+  type2APIDict: {},
 };
 
 // 定义类型到API下标的映射
-data.type2APIDict[TYPE_NER] =         "ner_config"
-data.type2APIDict[TYPE_MONEY] =       "money_config"
-data.type2APIDict[TYPE_REGULAR] =     "regular_config"
-data.type2APIDict[TYPE_KV] =          "kv_config"
-data.type2APIDict[TYPE_TITLE] =       "title_config"
-data.type2APIDict[TYPE_TABLETITLE] =  "tableTitle_config"
-data.type2APIDict[TYPE_TABLEID] =     "tableID_config"
+data.type2APIDict[TYPE_NER] = 'ner_config';
+data.type2APIDict[TYPE_MONEY] = 'money_config';
+data.type2APIDict[TYPE_REGULAR] = 'regular_config';
+data.type2APIDict[TYPE_KV] = 'kv_config';
+data.type2APIDict[TYPE_TITLE] = 'title_config';
+data.type2APIDict[TYPE_TABLETITLE] = 'tableTitle_config';
+data.type2APIDict[TYPE_TABLEID] = 'tableID_config';
 
 // 生成字典结构
 data.RuleModes.map((val) => {
   data.RuleModesDict[val.key] = val;
-  return val
+  return val;
 });
 data.RuleTypes.map((val) => {
   data.RuleTypesDict[val.key] = val;
-  return val
+  return val;
 });
 data.NerTypes.map((val) => {
   data.NerTypesDict[val.key] = val;
-  return val
+  return val;
 });
 data.MoneyTypes.map((val) => {
   data.MoneyTypesDict[val.key] = val;
-  return val
+  return val;
 });
 data.ObjectTypes.map((val) => {
   data.ObjectTypesDict[val.key] = val;
-  return val
+  return val;
 });
 console.log('************** data.js ***************', data);
 

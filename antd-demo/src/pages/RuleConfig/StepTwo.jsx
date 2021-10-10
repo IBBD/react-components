@@ -12,8 +12,7 @@ import TableTitleForm from './StepTwoItems/TableTitleForm.jsx';
 import TitleForm from './StepTwoItems/TitleForm.jsx';
 
 const StepTwo = (props) => {
-  useEffect(() => {
-  }, []);
+  useEffect(() => {}, []);
 
   const FormIitm = (rule_mode, rule_type) => {
     if (rule_mode === data.RuleModesDict.object.key) {
@@ -36,7 +35,7 @@ const StepTwo = (props) => {
       case data.RuleTypesDict.title.key:
         return <TitleForm {...props} />;
       default:
-        console.log('Error rule_type: ', rule_type)
+        console.log('Error rule_type: ', rule_type);
     }
   };
 

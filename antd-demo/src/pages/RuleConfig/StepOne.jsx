@@ -2,8 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 // import { Form, Input, Select, Switch } from 'antd';
 import { Form, Input as AntInput, Select as AntSelect } from 'antd';
 import data from './data.js';
-import DisabledContext from 'components/FormItem/DisabledContext'
-import { Input, Select, Switch } from 'components/FormItem/items'
+import DisabledContext from 'components/FormItem/DisabledContext';
+import { Input, Select, Switch } from 'components/FormItem/items';
 
 const { Option } = AntSelect;
 const { TextArea } = AntInput;
@@ -34,7 +34,7 @@ const StepOne = (props) => {
     props.changeRuleType(newRuleType);
   };
 
-  const { disabled } = useContext(DisabledContext)
+  const { disabled } = useContext(DisabledContext);
   return (
     <>
       <div style={{ display: visible ? 'block' : 'none' }}>
