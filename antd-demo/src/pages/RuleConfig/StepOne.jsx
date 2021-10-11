@@ -68,7 +68,7 @@ const StepOne = (props) => {
 
         {
           // 目标模式下不需要选择规则的类型
-          ruleMode !== data.RuleModesDict.object.key ? (
+          ruleMode && ruleMode !== data.RuleModesDict.object.key ? (
             <Form.Item
               label="规则类型"
               required
