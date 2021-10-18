@@ -1,5 +1,11 @@
 # 前端演示项目
 
+## 贡献指引
+
+参考：https://www.cnblogs.com/haomiao/p/11650324.html
+
+## 初始化过程记录
+
 ```sh
 yarn create react-app antd-demo
 cd antd-demo
@@ -56,4 +62,3 @@ vim config-overrides.js
 +   }),
 + );
 ```
-
