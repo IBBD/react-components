@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Button } from 'antd';
 import TreeHorizPage from './pages/TreeHoriz/TreeHorizPage';
 import RuleConfig from './pages/RuleConfig/RuleConfig';
+import Table from './pages/Table/index';
 
 function App() {
   const [confVersion, setConfVersion] = useState(0)
@@ -11,6 +12,10 @@ function App() {
     <>
       <div>
         <TreeHorizPage />
+      </div>
+
+      <div>
+        <Table />
       </div>
 
       <div>
