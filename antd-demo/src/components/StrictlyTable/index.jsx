@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Table } from 'antd';
 
-
+// Ant design 3.x的版本不支持参数：checkStrictly
+// 该组件实现类似的效果
 export default class StrictlyTable extends Component {
   state = {
     selectedRowKeys:[]
@@ -119,6 +120,7 @@ export default class StrictlyTable extends Component {
     const { rowSelection, rowKey } = this.props
     const { selectedRowKeys } = this.state
     const rowSelectionChild = {
+      ...rowSelection,
       selectedRowKeys: selectedRowKeys,
       onSelect: this.handleOnTableSelect,
       onSelectAll: (selected, selectedRows, changeRows) => {
