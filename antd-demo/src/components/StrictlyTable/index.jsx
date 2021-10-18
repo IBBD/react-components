@@ -125,15 +125,11 @@ export default class StrictlyTable extends Component {
       onSelect: this.handleOnTableSelect,
       onSelectAll: (selected, selectedRows, changeRows) => {
         console.log('In StrictleTable select all:', selected, selectedRows, changeRows)
-        if (selected) {
-          let arr_select = []
-          selectedRows.map((item) => {
-            return arr_select.push(item[rowKey])
-          })
-          this.setState({ selectedRowKeys: arr_select })
-        } else {
-          this.setState({ selectedRowKeys: [] })
-        }
+        let arr_select = []
+        selected && selectedRows.map((item) => {
+          return arr_select.push(item[rowKey])
+        })
+        this.setState({ selectedRowKeys: arr_select })
         rowSelection.onSelectAll(selected, selectedRows, changeRows)
       },
     };
