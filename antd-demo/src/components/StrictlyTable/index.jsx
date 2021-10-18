@@ -15,7 +15,7 @@ export default class StrictlyTable extends Component {
     let isExist = false;
     for (let i = 0; i < list.length; i++) {
       if ((childlist = list[i].children)) {
-        for (var key in childlist) {
+        for (let key in childlist) {
           if (childlist[key][this.props.rowKey] === id) {
             isExist = true;
           }
